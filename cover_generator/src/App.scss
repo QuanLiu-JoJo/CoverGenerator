@@ -1,0 +1,49 @@
+@import "~antd/dist/antd.css";
+
+.cover_generator_wrapper {
+  margin: 30px 20%;
+
+  .cover_setting {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div {
+      margin: 0 10px;
+    }
+
+    .ant-input-affix-wrapper {
+      width: 200px;
+    }
+    .ant-input {
+      width: 200px;
+    }
+
+    .ant-btn {
+      margin-left: 10px;
+    }
+  }
+
+  .cover_display {
+    margin: 50px auto;
+
+    .cover_content {
+      margin: 0 auto;
+      width: 30vw;
+      height: 18vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .cover_title {
+        width: 80%;
+        height: 80%;
+        border: 1px solid black;
+        font-size: large;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
