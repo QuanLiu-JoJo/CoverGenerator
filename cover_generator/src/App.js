@@ -2,6 +2,7 @@
 import "./App.scss";
 import { Input, Button } from "antd";
 import React, { useState, useEffect } from "react";
+import { downloadImage } from "./api";
 
 function App() {
   const [title, setTitle] = useState("默认标题");
@@ -13,6 +14,10 @@ function App() {
 
   const onBgcolorChange = (e) => {
     setBgcolor(e.target.value);
+  };
+
+  const downloadClick = () => {
+    downloadImage(".cover_content");
   };
 
   return (
@@ -33,12 +38,14 @@ function App() {
             maxLength="200"
             onChange={onBgcolorChange}
           />
-          <Button>下载封面</Button>
+          <Button onClick={downloadClick}>下载封面</Button>
         </div>
         <div className="cover_display">
-          <div className="cover_content" style={{ backgroundColor: bgcolor }}>
-            <div className="cover_title">
-              <span>{title}</span>
+          <div className="cover_content_wrapper">
+            <div className="cover_content" style={{ backgroundColor: bgcolor }}>
+              <div className="cover_title">
+                <span>{title}</span>
+              </div>
             </div>
           </div>
         </div>

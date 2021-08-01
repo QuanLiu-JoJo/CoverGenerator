@@ -1,7 +1,8 @@
 @import "~antd/dist/antd.css";
 
 .cover_generator_wrapper {
-  margin: 30px 20%;
+  margin: 0 20%;
+  padding: 30px;
 
   .cover_setting {
     display: flex;
@@ -27,22 +28,28 @@
   .cover_display {
     margin: 50px auto;
 
-    .cover_content {
+    .cover_content_wrapper {
       margin: 0 auto;
       width: 30vw;
       height: 18vw;
-      display: flex;
-      align-items: center;
-      justify-content: center;
 
-      .cover_title {
-        width: 80%;
-        height: 80%;
-        border: 1px solid black;
-        font-size: large;
+      .cover_content {
+        margin: 0 auto;
+        width: 30vw;
+        height: 18vw;
         display: flex;
         align-items: center;
         justify-content: center;
+
+        .cover_title {
+          width: 80%;
+          height: 80%;
+          border: 1px solid black;
+          font-size: large;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
       }
     }
   }
