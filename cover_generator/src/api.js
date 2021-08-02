@@ -1,7 +1,7 @@
 /* eslint-disable */
 import html2canvas from "html2canvas";
 
-export function downloadImage(selector) {
+export function downloadImage(selector, fileName = "downImg") {
   let _canvas = document.querySelector(selector);
 
   // 创造一个a标签用于下载，使用完后再删除
@@ -18,7 +18,7 @@ export function downloadImage(selector) {
     //canvas转换成url，然后利用a标签的download属性，直接下载，绕过上传服务器再下载
     let _temp_a = document.createElement("a");
     _temp_a.setAttribute("href", canvas.toDataURL());
-    _temp_a.setAttribute("download", "downImg");
+    _temp_a.setAttribute("download", fileName);
     document.body.appendChild(_temp_a);
     _temp_a.click();
     _temp_a.remove();

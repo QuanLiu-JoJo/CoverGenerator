@@ -17,7 +17,7 @@ function App() {
   };
 
   const downloadClick = () => {
-    downloadImage(".cover_content");
+    downloadImage(".cover_content", title);
   };
 
   return (
