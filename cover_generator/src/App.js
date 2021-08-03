@@ -3,10 +3,18 @@ import "./App.scss";
 import { Input, Button } from "antd";
 import React, { useState, useEffect } from "react";
 import { downloadImage } from "./api";
+import { ChromePicker } from "react-color";
 
 function App() {
   const [title, setTitle] = useState("默认标题");
-  const [bgcolor, setBgcolor] = useState("skyblue");
+  const [color, setColor] = useState({
+    h: 250,
+    s: 0,
+    l: 0.2,
+    a: 1,
+  });
+  const [bgColor, setBgColor] = useState("skyblue");
+  const [opacity, setOpacity] = useState(1);
 
   const onTitleChange = (e) => {
     setTitle(e.target.value);
@@ -18,6 +26,13 @@ function App() {
 
   const downloadClick = () => {
     downloadImage(".cover_content", title);
+  };
+
+  const onChangeColor = (obj) => {
+    console.log(obj);
+    setColor(obj.hsl);
+    setBgColor(obj.hex);
+    setOpacity(obj.hsl.a);
   };
 
   return (
@@ -40,9 +55,15 @@ function App() {
           />
           <Button onClick={downloadClick}>下载封面</Button>
         </div>
+        <div className="color_warrper">
+          <ChromePicker color={color} onChange={onChangeColor} />
+        </div>
         <div className="cover_display">
           <div className="cover_content_wrapper">
-            <div className="cover_content" style={{ backgroundColor: bgcolor }}>
+            <div
+              className="cover_content"
+              style={{ backgroundColor: bgColor, opacity: opacity }}
+            >
               <div className="cover_title">
                 <span>{title}</span>
               </div>
