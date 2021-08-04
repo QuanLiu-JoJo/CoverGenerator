@@ -29,11 +29,14 @@ function App() {
   };
 
   const onChangeColor = (obj) => {
-    console.log(obj);
     setColor(obj.hsl);
     setBgColor(obj.hex);
     setOpacity(obj.hsl.a);
   };
+
+  // useEffect(() => {
+  //   setBgColor("linear-gradient(#e66465, #9198e5)");
+  // });
 
   return (
     <div className="App">
@@ -62,7 +65,7 @@ function App() {
           <div className="cover_content_wrapper">
             <div
               className="cover_content"
-              style={{ backgroundColor: bgColor, opacity: opacity }}
+              style={{ background: bgColor, opacity: opacity }}
             >
               <div className="cover_title">
                 <span>{title}</span>
