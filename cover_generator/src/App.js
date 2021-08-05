@@ -1,6 +1,6 @@
 /* eslint-disable */
 import "./App.scss";
-import { Input, Button } from "antd";
+import { Input, Button, Radio } from "antd";
 import React, { useState, useEffect } from "react";
 import { downloadImage } from "./api";
 import { ChromePicker } from "react-color";
@@ -15,6 +15,7 @@ function App() {
   });
   const [bgColor, setBgColor] = useState("skyblue");
   const [opacity, setOpacity] = useState(1);
+  const [bgType, setBgType] = useState("color");
 
   const onTitleChange = (e) => {
     setTitle(e.target.value);
@@ -34,9 +35,9 @@ function App() {
     setOpacity(obj.hsl.a);
   };
 
-  // useEffect(() => {
-  //   setBgColor("linear-gradient(#e66465, #9198e5)");
-  // });
+  const handleBgTypeChange = (e) => {
+    setBgType(e.target.value);
+  };
 
   return (
     <div className="App">
@@ -59,6 +60,14 @@ function App() {
           <Button onClick={downloadClick}>下载封面</Button>
         </div>
         <div className="color_warrper">
+          <div className="bgChoose">
+            <Radio.Group value={bgType} onChange={handleBgTypeChange}>
+              <Radio.Button value="color">纯色</Radio.Button>
+              <Radio.Button value="gradual">渐变</Radio.Button>
+              <Radio.Button value="image">图片</Radio.Button>
+            </Radio.Group>
+          </div>
+
           <ChromePicker color={color} onChange={onChangeColor} />
         </div>
         <div className="cover_display">
