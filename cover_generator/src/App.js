@@ -3,16 +3,11 @@ import "./App.scss";
 import { Input, Button, Radio } from "antd";
 import React, { useState, useEffect } from "react";
 import { downloadImage } from "./api";
-import { ChromePicker } from "react-color";
+import ColorPiker from "./ColorPiker";
+import GradualPiker from "./GradualPiker";
 
 function App() {
   const [title, setTitle] = useState("默认标题");
-  const [color, setColor] = useState({
-    h: 250,
-    s: 0,
-    l: 0.2,
-    a: 1,
-  });
   const [bgColor, setBgColor] = useState("skyblue");
   const [opacity, setOpacity] = useState(1);
   const [bgType, setBgType] = useState("color");
@@ -29,14 +24,17 @@ function App() {
     downloadImage(".cover_content", title);
   };
 
-  const onChangeColor = (obj) => {
-    setColor(obj.hsl);
+  const handleBgTypeChange = (e) => {
+    setBgType(e.target.value);
+  };
+
+  const onColorPikerChange = (obj) => {
     setBgColor(obj.hex);
     setOpacity(obj.hsl.a);
   };
 
-  const handleBgTypeChange = (e) => {
-    setBgType(e.target.value);
+  const onGradualPikerChange = (gradual) => {
+    setBgColor(gradual);
   };
 
   return (
@@ -68,8 +66,15 @@ function App() {
             </Radio.Group>
           </div>
 
-          <ChromePicker color={color} onChange={onChangeColor} />
+          <div className="bgPiker">
+            {bgType === "color" ? (
+              <ColorPiker onChange={onColorPikerChange} />
+            ) : (
+              <GradualPiker onChange={onGradualPikerChange} />
+            )}
+          </div>
         </div>
+
         <div className="cover_display">
           <div className="cover_content_wrapper">
             <div

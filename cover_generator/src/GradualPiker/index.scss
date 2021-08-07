@@ -1,0 +1,26 @@
+@import "~antd/dist/antd.css";
+
+.gradualPikerWarpper {
+  .bgExample {
+    height: 40px;
+    margin-bottom: 5px;
+    .border {
+      padding: 5px;
+      border: 1px solid rgb(177, 174, 174);
+      height: 100%;
+      width: 225px;
+      text-align: center;
+
+      div {
+        width: 28px;
+        display: inline-block;
+        height: 100%;
+      }
+
+      .content {
+        width: 67%;
+        margin: 0 5px;
+      }
+    }
+  }
+}

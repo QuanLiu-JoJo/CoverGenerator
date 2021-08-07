@@ -1,0 +1,19 @@
+@import "~antd/dist/antd.css";
+
+.colorPikerWarpper {
+  .bgExample {
+    height: 40px;
+    margin-bottom: 5px;
+    .border {
+      padding: 5px;
+      border: 1px solid rgb(177, 174, 174);
+      height: 100%;
+      width: 225px;
+
+      .content {
+        padding: 5px;
+        height: 100%;
+      }
+    }
+  }
+}

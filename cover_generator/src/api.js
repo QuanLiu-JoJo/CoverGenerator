@@ -24,3 +24,7 @@ export function downloadImage(selector, fileName = "downImg") {
     _temp_a.remove();
   });
 }
+
+export function ragaToString(obj) {
+  return `rgba(${obj.r}, ${obj.g}, ${obj.b}, ${obj.a})`;
+}
