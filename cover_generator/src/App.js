@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import { downloadImage } from "./api";
 import ColorPiker from "./ColorPiker";
 import GradualPiker from "./GradualPiker";
+import ImagePiker from "./ImagePiker";
 
 function App() {
   const [title, setTitle] = useState("默认标题");
@@ -69,8 +70,10 @@ function App() {
           <div className="bgPiker">
             {bgType === "color" ? (
               <ColorPiker onChange={onColorPikerChange} />
-            ) : (
+            ) : bgType === "gradual" ? (
               <GradualPiker onChange={onGradualPikerChange} />
+            ) : (
+              <ImagePiker onChange={onGradualPikerChange} />
             )}
           </div>
         </div>
