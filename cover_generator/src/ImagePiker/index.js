@@ -26,14 +26,18 @@ function beforeUpload(file) {
 }
 
 class ImagePiker extends React.Component {
+  constructor(props) {
+    super(props);
+    this.setImage = props.onChange;
+  }
+
   state = {
     loading: false,
   };
 
   handleChange = (info) => {
-    console.log(info);
     getBase64(info.file.originFileObj, (imageUrl) => {
-      console.log(imageUrl);
+      this.setImage(imageUrl);
       this.setState({
         imageUrl,
         loading: false,
@@ -55,7 +59,6 @@ class ImagePiker extends React.Component {
         listType="picture-card"
         className="avatar-uploader"
         showUploadList={false}
-        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
         beforeUpload={beforeUpload}
         onChange={this.handleChange}
       >

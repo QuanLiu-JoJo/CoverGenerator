@@ -1,31 +1,30 @@
 /* eslint-disable */
 import React, { useState, useEffect } from "react";
 import { ChromePicker } from "react-color";
-import { ragaToString } from "../api";
+import { rgbaToString } from "../api";
 import "./index.scss";
 
 const GradualPiker = ({ onChange }) => {
   const [color1, setColor1] = useState({
-    r: 250,
-    g: 0,
-    b: 0.2,
+    r: 20,
+    g: 45,
+    b: 2,
     a: 1,
   });
-  const [bgColor1, setBgColor1] = useState("skyblue");
+  const [bgColor1, setBgColor1] = useState(rgbaToString(color1));
   const [leftDisplay, setLeftDisplay] = useState(true);
 
   const [color2, setColor2] = useState({
     r: 250,
-    g: 0,
-    b: 0.2,
+    g: 40,
+    b: 2,
     a: 1,
   });
-  const [bgColor2, setBgColor2] = useState("blue");
+  const [bgColor2, setBgColor2] = useState(rgbaToString(color2));
 
   const onChangeColor1 = (obj) => {
     setColor1(obj.rgb);
-    setBgColor1(ragaToString(obj.rgb));
-    onChange(`linear-gradient(to right, ${bgColor1}, ${bgColor2})`);
+    setBgColor1(rgbaToString(obj.rgb));
   };
 
   const clickLeft = () => {
@@ -34,13 +33,16 @@ const GradualPiker = ({ onChange }) => {
 
   const onChangeColor2 = (obj) => {
     setColor2(obj.rgb);
-    setBgColor2(ragaToString(obj.rgb));
-    onChange(`linear-gradient(to right, ${bgColor1}, ${bgColor2})`);
+    setBgColor2(rgbaToString(obj.rgb));
   };
 
   const clickRight = () => {
     setLeftDisplay(false);
   };
+
+  useEffect(() => {
+    onChange(`linear-gradient(to right, ${bgColor1}, ${bgColor2})`);
+  }, [bgColor1, bgColor2]);
 
   return (
     <div className="gradualPikerWarpper">

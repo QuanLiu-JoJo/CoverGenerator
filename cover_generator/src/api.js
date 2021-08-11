@@ -25,6 +25,15 @@ export function downloadImage(selector, fileName = "downImg") {
   });
 }
 
-export function ragaToString(obj) {
+export function rgbaToString(obj) {
   return `rgba(${obj.r}, ${obj.g}, ${obj.b}, ${obj.a})`;
+}
+
+export function isParentNode(p, c) {
+  let _c = c;
+  while (_c) {
+    if (_c == p) return true;
+    _c = _c.parentNode;
+  }
+  return false;
 }

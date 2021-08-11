@@ -7,12 +7,8 @@
   .cover_setting {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 10px;
-
-    div {
-      margin: 0 10px;
-    }
 
     .ant-input-affix-wrapper {
       width: 200px;
@@ -24,18 +20,21 @@
     .ant-btn {
       margin-left: 10px;
     }
-  }
 
-  .color_warrper {
-    // padding: 0 200px;
-    width: 225px;
+    .color_warrper {
+      // padding: 0 200px;
+      width: 225px;
+      position: relative;
+      margin-left: 10px;
 
-    .bgChoose {
-      margin-bottom: 5px;
-    }
+      .bgChoose {
+        margin-bottom: 5px;
+      }
 
-    .bgPiker {
-      height: 285px;
+      .bgPiker {
+        position: absolute;
+        // height: 285px;
+      }
     }
   }
 
@@ -54,12 +53,16 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        background-size: cover !important;
 
         .cover_title {
           width: 80%;
           height: 80%;
-          border: 1px solid black;
-          font-size: large;
+          border: 3px solid white;
+          padding: 10%;
+          text-align: justify;
+          color: white;
+          font-size: 22px;
           display: flex;
           align-items: center;
           justify-content: center;
