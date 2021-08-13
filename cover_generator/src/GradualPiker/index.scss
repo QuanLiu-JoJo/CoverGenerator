@@ -11,6 +11,12 @@
       width: 225px;
       text-align: center;
 
+      .left,
+      .right {
+        border: 1px solid gray;
+        border-radius: 2px;
+      }
+
       div {
         width: 28px;
         display: inline-block;
